@@ -1,0 +1,33 @@
+# Import packages and functions
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+rng = np.random.RandomState(21)
+
+# Load the dataset
+loblollyPine = pd.read_csv('loblollyPineSample.csv')
+
+# Set proportions of train-validate-test split
+trainProportionPercent = 0.6
+validateProportionPercent = 0.1
+testProportionPercent = 0.3
+
+# Split dataset into training/validation data and testing data
+
+trainAndValidate, testDatasetPercent = train_test_split(loblollyPine, test_size= testProportionPercent, random_state = rng)
+
+# Split training/validation data into training data and validation data
+trainDatasetPercent, validateDatasetPercent = train_test_split(
+    trainAndValidate, 
+    train_size=trainProportionPercent/(trainProportionPercent+validateProportionPercent),
+    random_state=rng
+)
+
+# Print split sizes and test dataset
+print('original dataset:', len(loblollyPine), 
+    '\ntrain_data:', len(trainDatasetPercent), 
+    '\nvalidation_data:', len(validateDatasetPercent), 
+    '\n\ntest_data:', len(testDatasetPercent),
+    '\n', testDatasetPercent
+)
