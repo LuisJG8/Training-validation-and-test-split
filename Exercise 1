@@ -16,9 +16,9 @@ loblolly = pd.read_csv('loblollySample.csv')
 # Set proportions of train-validate-test split
 
 # Your code goes here 
-trainingPropPercent = 32
-validatingPropPercent = 5
-testingPropPercent = 13
+trainingPropPercent = 32 #ANSWER
+validatingPropPercent = 5 #ANSWER
+testingPropPercent = 13 #ANSWER
 
 # Split dataset into training/validation data and testing data
 trainAndValidate, testingDataPercent = train_test_split(loblolly, test_size=testingPropPercent, random_state=rng)
