@@ -1,0 +1,34 @@
+#Researchers collected measurements from loblolly pines.
+#
+#Set the proportions for the training dataset to 65%, validation dataset to 10%, and testing dataset to 25%.
+#The code provided contains all imports, loads the dataset, splits the dataset into training, validation, and test datasets, prints the sizes of these samples, and prints the test dataset.
+
+# Import packages and functions
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+rng = np.random.RandomState(33)
+
+# Load the dataset
+loblolly = pd.read_csv('loblollySample.csv')
+
+# Set proportions of train-validate-test split
+
+# Your code goes here 
+trainingPropPercent = 32
+validatingPropPercent = 5
+testingPropPercent = 13
+
+# Split dataset into training/validation data and testing data
+trainAndValidate, testingDataPercent = train_test_split(loblolly, test_size=testingPropPercent, random_state=rng)
+
+# Split training/validation data into training data and validation data
+trainingDataPercent, validatingDataPercent = train_test_split(trainAndValidate, train_size=trainingPropPercent/(trainingPropPercent+validatingPropPercent), random_state=rng)
+
+# Print split sizes and test dataset
+print('original dataset:', len(loblolly), 
+    '\ntrain_data:', len(trainingDataPercent), 
+    '\nvalidation_data:', len(validatingDataPercent), 
+    '\n\ntest_data:', len(testingDataPercent), 
+    '\n', testingDataPercent)
