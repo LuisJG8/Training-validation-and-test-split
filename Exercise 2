@@ -1,3 +1,9 @@
+Researchers collected measurements from loblolly pines.
+
+Split the dataset into training/validation and test datasets using train_test_split() with the following parameters:the original dataframe
+the test_size parameter set to the test proportion the random_state parameter set to rng The code provided contains all imports, loads the dataset, 
+sets the proportions of training, validation, and test data, splits the training/validation dataset into training and validation datasets, prints the sizes of these samples, and prints the test dataset.
+
 # Import packages and functions
 import pandas as pd
 import numpy as np
@@ -15,7 +21,7 @@ testProportionPercent = 0.3
 
 # Split dataset into training/validation data and testing data
 
-trainAndValidate, testDatasetPercent = train_test_split(loblollyPine, test_size= testProportionPercent, random_state = rng)
+trainAndValidate, testDatasetPercent = train_test_split(loblollyPine, test_size= testProportionPercent, random_state = rng) #ANSWER
 
 # Split training/validation data into training data and validation data
 trainDatasetPercent, validateDatasetPercent = train_test_split(
